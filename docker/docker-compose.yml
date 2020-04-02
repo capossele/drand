@@ -8,5 +8,5 @@ services:
     ports:
       - "0.0.0.0:80:8080"
     entrypoint: drand 
-    command: --verbose 2 start --listen 127.0.0.1:8080 --tls-disable"
+    command: --verbose 2 start --listen 127.0.0.1:8080 --tls-disable
     restart: always
