@@ -48,6 +48,9 @@ else
 fi
 
 # Let the deamon alive for long enough
-sleep 9999
+while true
+do
+sleep 2
+done
 
 echo "Done"
