@@ -21,6 +21,8 @@ services:
       - ./data:/data:z
     networks: 
       - drandnetwork
+    ports:
+      - "8000:8000/tcp"
     environment:
       PORT: 8000
       LEADER: 1
@@ -32,6 +34,8 @@ services:
       - ./data:/data:z
     networks: 
       - drandnetwork
+    ports:
+      - "8001:8001/tcp"
     environment:
       PORT: 8001
   drand-client-3:
@@ -42,6 +46,8 @@ services:
       - ./data:/data:z
     networks: 
       - drandnetwork
+    ports:
+      - "8002:8002/tcp"
     environment:
       PORT: 8002
   drand-client-4:
@@ -52,6 +58,8 @@ services:
       - ./data:/data:z
     networks: 
       - drandnetwork
+    ports:
+      - "8003:8003/tcp"
     environment:
       PORT: 8003
   drand-client-5:
@@ -62,6 +70,8 @@ services:
       - ./data:/data:z
     networks: 
       - drandnetwork
+    ports:
+      - "8004:8004/tcp"
     environment:
       PORT: 8004
 
