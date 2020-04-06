@@ -17,7 +17,7 @@ chmod ugo+rwx "${GROUP_FILE}"
 rm -f data/*.public
 
 # build and run 5 docker images (what each container does is in data/client-script.sh)
-docker-compose up -d --build
+docker-compose up -d
 
 echo ""
 echo "Congratulations! the drand network is running."

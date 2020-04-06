@@ -29,7 +29,7 @@ FIX_SCRIPT
 chmod ug+x /bin/call_api
 
 # Boot the drand deamon in background
-nohup drand start --tls-disable & # add "--verbose 2" here for more details
+nohup drand start --tls-disable --goshimmerAPIurl "http://iota_goshimmer:8080" & # add "--verbose 2" here for more details
 
 # Wait for all containers to have done the same
 sleep 5

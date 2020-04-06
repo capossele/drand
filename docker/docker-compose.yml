@@ -8,5 +8,5 @@ services:
     ports:
       - "0.0.0.0:1234:8000"
     entrypoint: drand 
-    command: --verbose 2 start --listen 127.0.0.1:8000 --tls-disable --goshimmerAPIurl "http://127.0.0.1:8080"
+    command: --verbose 2 start --listen 127.0.0.1:8000 --tls-disable --goshimmerAPIurl "http://iota_goshimmer:8080"
     restart: always
