@@ -6,6 +6,7 @@ services:
     image: angelocapossele/goshimmer:latest
     volumes:
       - ./mainnetdb/:/mainnetdb/:rw
+      - ./config.json:/config.json:ro
     networks: 
       - drandnetwork
     ports:
