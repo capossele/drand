@@ -14,7 +14,7 @@ require (
 	github.com/go-kit/kit v0.9.0
 	github.com/golang/protobuf v1.3.4
 	github.com/grpc-ecosystem/grpc-gateway v1.12.1
-	github.com/iotaledger/goshimmer v0.1.1-0.20200403103012-855982173dca
+	github.com/iotaledger/goshimmer v0.1.1-0.20200406075949-6e2a9554b4cf
 	github.com/kabukky/httpscerts v0.0.0-20150320125433-617593d7dcb3
 	github.com/kr/pretty v0.2.0 // indirect
 	github.com/kr/text v0.2.0 // indirect

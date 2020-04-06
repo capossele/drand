@@ -42,11 +42,10 @@ var (
 
 const gname = "group.toml"
 const dpublic = "dist_key.public"
-const defaultPort = "8080"
-const defaultTxAddress = "RANDOM99NUMBER9999999999999999999999999999999999999999999999999999999999999999999"
+const defaultPort = "8000"
 
 func banner() {
-	fmt.Printf("drand %v (date %v, commit %v) by nikkolasg\n", version, buildDate, gitCommit)
+	fmt.Printf("IOTA-drand %v (date %v, commit %v) (by nikkolasg and IF)\n", version, buildDate, gitCommit)
 	s := "WARNING: this software has NOT received a full audit and must be used with caution and probably NOT in a production environment.\n"
 	fmt.Printf(s)
 }
@@ -185,7 +184,7 @@ func main() {
 			Usage: "Start the drand daemon.",
 			Flags: toArray(folderFlag, tlsCertFlag, tlsKeyFlag,
 				insecureFlag, controlFlag, listenFlag,
-				certsDirFlag, pushFlag),
+				certsDirFlag, pushFlag, goshimmerAPIurl),
 			Action: func(c *cli.Context) error {
 				banner()
 				return startCmd(c)
@@ -682,10 +681,9 @@ func beaconCallback(b *beacon.Beacon) {
 	msgId, err := api.BroadcastData(cb.Bytes())
 	if err != nil {
 		fmt.Println("Error writing on the Tangle: ", err.Error())
-	} else {
-		fmt.Println("Beacon written on the Tangle with msgID: ", msgId)
+		return
 	}
-
+	fmt.Println("Beacon written on the Tangle with msgID: ", msgId)
 }
 
 func getNodes(c *cli.Context) []*key.Identity {

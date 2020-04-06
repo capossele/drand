@@ -1,4 +1,8 @@
-[![Build Status](https://travis-ci.org/drand/drand.svg?branch=master)](https://travis-ci.org/drand/drand)
+[![Build Status](https://travis-ci.org/capossele/drand.svg?branch=master)](https://travis-ci.org/capossele/drand)
+
+
+This repo is a fork of [drand](https://github.com/drand/drand) that adds 
+the integration of [GoShimmer](https://github.com/iotaledger/goshimmer).
 
 # Drand - A Distributed Randomness Beacon Daemon
 Drand (pronounced "dee-rand") is a distributed randomness beacon daemon written
@@ -154,7 +158,7 @@ The script spins up 5 local drand nodes using Docker and produces fresh
 ## Installation
 ### Official release
 Please go use the latest drand binary in the
-[release page](https://github.com/drand/drand/releases).
+[release page](https://github.com/capossele/drand/releases).
 
 ### Manual installation
 Drand can be installed via [Golang](https://golang.org/) or
@@ -169,14 +173,14 @@ installation](https://golang.org/doc/install) and that your
 
 Then install drand via:
 ```bash
-git clone https://github.com/drand/drand
+git clone https://github.com/capossele/drand
 cd drand
 make install
 ```
 
 #### Via Docker
 The setup is explained in
-[README\_docker.md](https://github.com/drand/drand/tree/master/docker/README_docker.md).
+[README\_docker.md](https://github.com/capossele/drand/tree/master/docker/README_docker.md).
 
 ### TLS setup: Nginx with Let's Encrypt
 Running drand behind a reverse proxy is the **default** method of deploying
@@ -195,10 +199,10 @@ server {
   listen 443 ssl http2;
  
   location / {
-    grpc_pass grpc://localhost:8080;
+    grpc_pass grpc://localhost:8000;
   }
   location /api/ {
-    proxy_pass http://localhost:8080;
+    proxy_pass http://localhost:8000;
     proxy_set_header Host $host;
   }
 }
@@ -207,7 +211,7 @@ server {
 1. the port on which you want drand to be accessible by changing the line
    `listen 443 ssl http2` to use any port.
 2. the port on which the drand binary will listen locally by changing the line
-   `proxy_pass http://localhost:8080; ` and ` grpc_pass grpc://localhost:8080;`
+   `proxy_pass http://localhost:8000; ` and ` grpc_pass grpc://localhost:8000;`
    to use any local port.
 
 + Run certbot to get a TLS certificate:
@@ -217,7 +221,7 @@ sudo certbot --nginx
 
 + **Running** drand now requires to add the following options:
 ```bash
-drand start --tls-disable --listen 127.0.0.1:8080
+drand start --tls-disable --listen 127.0.0.1:8000
 ```
 
 The `--listen` flag tells drand to listen on the given address instead of the
@@ -642,7 +646,7 @@ project.
 
 ## License
 The drand source code is released under MIT license originated at the DEDIS lab,
-see the file [LICENSE](https://github.com/dedis/drand/blob/master/LICENSE) for
+see the file [LICENSE](https://github.com/capossele/drand/blob/master/LICENSE) for
 the full text. All modifications brought to this repository are as well under
 an MIT license.
 
@@ -669,8 +673,7 @@ Thanks to [@Bren2010](https://github.com/Bren2010) and
 Golang bn256 implementation and for their help in the design of drand and
 future ideas.
 
-Finally, a special note for Bryan Ford from the [DEDIS lab](https://dedis.ch)
-for letting me work on this project and helping me grow it.
+Finally, a special note for Bryan Ford from the [DEDIS lab](https://dedis.ch).
 
 ## Coverage
 
@@ -693,7 +696,7 @@ for letting me work on this project and helping me grow it.
 
 ## Supporting 
 Drand is an open source project, currently as a side project. If you believe in
-the project, your financial help would be very valuable. Please contact me on
+the project, your financial help would be very valuable. Please contact the main author on
 [twitter](https://twitter.com/nikkolasg1) to know more about the project and
 its continuation and how to fund it. More documentation on that front will
 arrive.
