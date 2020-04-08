@@ -678,7 +678,7 @@ func beaconCallback(b *beacon.Beacon) {
 		b.Signature,
 		coKey)
 
-	msgId, err := api.BroadcastData(cb.Bytes())
+	msgId, err := api.BroadcastCollectiveBeacon(cb.Bytes())
 	if err != nil {
 		fmt.Println("Error writing on the Tangle: ", err.Error())
 		return
